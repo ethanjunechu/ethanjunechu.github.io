@@ -1,23 +1,42 @@
-extends partial/layout
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 表盘校准设计系统 · ESERIES</title><meta name="description" content="校准、设计、绘制表盘，导出矢量图"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://eseries.studio/atom.xml" title="ESERIES"><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-41153556-1",'auto');ga('send','pageview');</script><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src ="//hm.baidu.com/hm.js?42f2db0e43e199df29a61b16286ba64d";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></head><body><div id="mask" style="display: none;"><img id="mask-image" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" width="0" height="0" style=" "></div><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/ethanjunechu" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="http://taobao.com/" target="_blank" class="nav-list-link">SHOP</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">表盘校准设计系统</h1><div class="post-info">Nov 29, 2017</div><div class="post-content"><div class="tip"><br><strong>如有需要，请联系<a href="ethan.j.chu@gmail.com">EthanTech</a></strong><br></div>
 
-block site_title
-    != page.title + " · " + config.title
-
-block description
-    - var desc = page.desc || page.title + ' - ' + config.author;
-    meta(name="description", content=desc)
-
-block container
-    include mixins/post
-    +post(page)
-    p(style="text-align:center")
-        a.donate-link(href="")
-            img(src=url_for(theme.donate) alt="donate" width="50%")
-
-block pagination
-    include mixins/paginator
-    +post()
-    include partial/comment
-
-block copyright
-    include partial/copyright
+<p><img src="../../../../../2017/11/29/表盘校准设计系统/screenshot_1.png" alt="screenshot_1.png"></p>
+<hr>
+<h3 id="2017年12月28日"><a href="#2017年12月28日" class="headerlink" title="2017年12月28日"></a><code>2017年12月28日</code></h3><blockquote>
+<p>更新V1.0.2</p>
+<ul>
+<li>实装Logo图标绘制功能</li>
+<li>修复日常BUG</li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="2017年12月05日"><a href="#2017年12月05日" class="headerlink" title="2017年12月05日"></a><code>2017年12月05日</code></h3><blockquote>
+<p>更新<b>V1.0.1</b></p>
+<ul>
+<li>新增外表盘单位绘制功能，支持单位名称、字号、颜色、位置自定义</li>
+<li>新增作业进度条及Loading提示界面</li>
+<li>新增更新历史界面，点击《表盘设计系统》即可打开、关闭该界面</li>
+<li>新增高分辨率显示器支持</li>
+<li>修复未关闭本系统无法将导出的矢量图导入第三方绘图软件的BUG<a id="more"></a></li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="2017年11月29日"><a href="#2017年11月29日" class="headerlink" title="2017年11月29日"></a><code>2017年11月29日</code></h3><blockquote>
+<p>更新<b>V1.0.0</b></p>
+<ul>
+<li>该版本为第一个用户试用版</li>
+<li>已支持基本的外表盘绘制功能</li>
+<li>已支持导出表盘WMF格式矢量图片</li>
+<li>支持初始默认数据导入</li>
+</ul>
+</blockquote>
+<p><img src="../../../../../2017/11/29/表盘校准设计系统/screenshot_2.png" alt="screenshot_2.png"><br><br></p>
+</div></article></div><p style="text-align:center"><a href="" class="donate-link"><img src="/donate.png" alt="donate" width="50%"></a></p></main><footer><div class="paginator"><a href="/2017/12/15/实现用户管理springboot+react+dva+antd/" class="prev">PREV</a><a href="/2016/06/30/i.MX28-Linux移植/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'eseries';
+var disqus_identifier = '2017/11/29/表盘校准设计系统/';
+var disqus_title = '表盘校准设计系统';
+var disqus_url = 'http://eseries.studio/2017/11/29/表盘校准设计系统/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//eseries.disqus.com/count.js" async></script><div class="copyright"><p>© 2016 - 2018 <a href="http://eseries.studio">Ethan</a>, unless otherwise noted.</p></div></footer></div></body></html>

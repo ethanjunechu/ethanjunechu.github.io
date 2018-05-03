@@ -1,23 +1,18 @@
-extends partial/layout
-
-block site_title
-    != page.title + " · " + config.title
-
-block description
-    - var desc = page.desc || page.title + ' - ' + config.author;
-    meta(name="description", content=desc)
-
-block container
-    include mixins/post
-    +post(page)
-    p(style="text-align:center")
-        a.donate-link(href="")
-            img(src=url_for(theme.donate) alt="donate" width="50%")
-
-block pagination
-    include mixins/paginator
-    +post()
-    include partial/comment
-
-block copyright
-    include partial/copyright
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> BALI-2015 · ESERIES</title><meta name="description" content="巴厘岛照片"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://eseries.studio/atom.xml" title="ESERIES"><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-41153556-1",'auto');ga('send','pageview');</script><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src ="//hm.baidu.com/hm.js?42f2db0e43e199df29a61b16286ba64d";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></head><body><div id="mask" style="display: none;"><img id="mask-image" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" width="0" height="0" style=" "></div><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/ethanjunechu" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="http://taobao.com/" target="_blank" class="nav-list-link">SHOP</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">BALI-2015</h1><div class="post-info">May 1, 2016</div><div class="post-content"><h4 id="📍Location-Nusa-Lembongan"><a href="#📍Location-Nusa-Lembongan" class="headerlink" title="📍Location: Nusa Lembongan"></a>📍Location: Nusa Lembongan</h4><p><img src="../../../../../2016/05/01/BALI-2015/Nusa Lembongan1.jpg" alt="Nusa Lembongan1"> <a id="more"></a><br><br></p>
+<h4 id="📍Location-Puri-Nusa-Dua"><a href="#📍Location-Puri-Nusa-Dua" class="headerlink" title="📍Location: Puri Nusa Dua"></a>📍Location: Puri Nusa Dua</h4><p><img src="../BALI-2015/Puri Nusa Dua.jpg" alt="Puri Nusa Dua"><br><br></p>
+<h4 id="📍Location-Benoa-Bay"><a href="#📍Location-Benoa-Bay" class="headerlink" title="📍Location: Benoa Bay"></a>📍Location: Benoa Bay</h4><p><img src="../BALI-2015/Benoa Bay.jpg" alt="Benoa Bay"><br><br></p>
+<h4 id="📍Location-Pura-Tanah-Lot"><a href="#📍Location-Pura-Tanah-Lot" class="headerlink" title="📍Location: Pura Tanah Lot"></a>📍Location: Pura Tanah Lot</h4><p><img src="../BALI-2015/Pura Tanah Lot.jpg" alt="Pura Tanah Lot"><br><br></p>
+<h4 id="📍Location-Bounty-Cruise"><a href="#📍Location-Bounty-Cruise" class="headerlink" title="📍Location: Bounty Cruise"></a>📍Location: Bounty Cruise</h4><p><img src="../BALI-2015/Bounty Cruise.jpg" alt="Bounty Cruise"><br><br></p>
+<h4 id="📍Location-Nusa-Lembongan-1"><a href="#📍Location-Nusa-Lembongan-1" class="headerlink" title="📍Location: Nusa Lembongan"></a>📍Location: Nusa Lembongan</h4><p><img src="../BALI-2015/Nusa Lembongan2.jpg" alt="Nusa Lembongan2"><br><br></p>
+<h4 id="📍Location-Nusa-Lembongan-2"><a href="#📍Location-Nusa-Lembongan-2" class="headerlink" title="📍Location: Nusa Lembongan"></a>📍Location: Nusa Lembongan</h4><p><img src="../BALI-2015/Nusa Lembongan3.jpg" alt="Nusa Lembongan3"><br><br></p>
+<h4 id="📍Location-Nusa-Lembongan-3"><a href="#📍Location-Nusa-Lembongan-3" class="headerlink" title="📍Location: Nusa Lembongan"></a>📍Location: Nusa Lembongan</h4><p><img src="../BALI-2015/Nusa Lembongan4.jpg" alt="Nusa Lembongan4"><br><br></p>
+<h4 id="📍Location-Kuta"><a href="#📍Location-Kuta" class="headerlink" title="📍Location: Kuta"></a>📍Location: Kuta</h4><p><img src="../BALI-2015/Kuta.jpg" alt="Kuta"></p>
+</div></article></div><p style="text-align:center"><a href="" class="donate-link"><img src="/donate.png" alt="donate" width="50%"></a></p></main><footer><div class="paginator"><a href="/2016/06/30/i.MX28-Linux移植/" class="prev">PREV</a><a href="/2016/04/24/部署hexo3.0到Github和Coding/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'eseries';
+var disqus_identifier = '2016/05/01/BALI-2015/';
+var disqus_title = 'BALI-2015';
+var disqus_url = 'http://eseries.studio/2016/05/01/BALI-2015/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//eseries.disqus.com/count.js" async></script><div class="copyright"><p>© 2016 - 2018 <a href="http://eseries.studio">Ethan</a>, unless otherwise noted.</p></div></footer></div></body></html>

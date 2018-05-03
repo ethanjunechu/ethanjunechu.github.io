@@ -1,23 +1,26 @@
-extends partial/layout
-
-block site_title
-    != page.title + " · " + config.title
-
-block description
-    - var desc = page.desc || page.title + ' - ' + config.author;
-    meta(name="description", content=desc)
-
-block container
-    include mixins/post
-    +post(page)
-    p(style="text-align:center")
-        a.donate-link(href="")
-            img(src=url_for(theme.donate) alt="donate" width="50%")
-
-block pagination
-    include mixins/paginator
-    +post()
-    include partial/comment
-
-block copyright
-    include partial/copyright
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 给 GitHub Pages 上的 Hexo Blog 使用阿里云的免费 SSL 证书 · ESERIES</title><meta name="description" content="给 GitHub Pages 上的 Hexo Blog 使用阿里云的免费 SSL 证书，让自定义域名从http转换到https"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://eseries.studio/atom.xml" title="ESERIES"><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-41153556-1",'auto');ga('send','pageview');</script><script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src ="//hm.baidu.com/hm.js?42f2db0e43e199df29a61b16286ba64d";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script></head><body><div id="mask" style="display: none;"><img id="mask-image" src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" width="0" height="0" style=" "></div><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/ethanjunechu" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="http://taobao.com/" target="_blank" class="nav-list-link">SHOP</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">给 GitHub Pages 上的 Hexo Blog 使用阿里云的免费 SSL 证书</h1><div class="post-info">Dec 19, 2017</div><div class="post-content"><p>不好意思，你不安全！<br><img src="../../../../../2017/12/19/给 GitHub Pages 上的 Hexo Blog 使用阿里云的免费 SSL 证书/screenshot_1.png" alt="screenshot_1.png"><br>为了安全，我们只有给自己的Blog加上证书，阿里云有一年期的免费个人证书，那当然是硬气的用它🙃<br><a id="more"></a></p>
+<h4 id="1-申请证书"><a href="#1-申请证书" class="headerlink" title="1.申请证书"></a>1.申请证书</h4><p>登录：阿里云控制台 –&gt; 产品与服务 –&gt; 证书服务 –&gt; 购买证书<br>购买：证书类型选择 –&gt; 免费型 DV SSL –&gt; 然后完成购买<br><img src="../../../../../2017/12/19/给 GitHub Pages 上的 Hexo Blog 使用阿里云的免费 SSL 证书/screenshot_2.png" alt="screenshot_2.png"><br>补全：在 <code>我的证书</code> 控制台，找到购买的证书，在操作栏里选择 <code>补全</code> 填写证书相关信息<br>域名验证：可以选择 DNS ，如果域名用了阿里云的 DNS 服务，再勾选一下 证书绑定的域名在阿里云的云解析<br>上传：系统生成 CSR ，创建证书<br>提交审核<br>如果一切正常，10分钟左右，申请的证书就会审核通过<br>在域名的管理里，因为我用了阿里云的 DNS 解析服务，所以会自动添加一条 CNAME 记录，这条记录就是验证域名所有权用的</p>
+<h4 id="2-下载证书"><a href="#2-下载证书" class="headerlink" title="2.下载证书"></a>2.下载证书</h4><p>在阿里云的证书管理那里，如果申请的证书审核通过，你就可以下载了，可以选择不同的类型，我选择的 NGINX 服务器，解压以后，你会得到两个文件一个是 <em>.key，一个是 </em>.pem<br><img src="../../../../../2017/12/19/给 GitHub Pages 上的 Hexo Blog 使用阿里云的免费 SSL 证书/screenshot_3.png" alt="screenshot_3.png"></p>
+<h4 id="3-Netlify-配置"><a href="#3-Netlify-配置" class="headerlink" title="3.Netlify 配置"></a>3.Netlify 配置</h4><p>注册一个 Netlify 帐号，地址 <a href="https://app.netlify.com/signup" target="_blank" rel="noopener">Netlify App</a> 选择用 GitHub 注册就好了<br>添加一个新的站点，在 Domain management 中设置自己的域名，我这里设置成 <a href="eseries.studio">eseries.studio</a><br>然后根据 Netlify 的提示设置好阿里云的 DNS 解析服务<br>最后上传证书，这里需要注意以下配置</p>
+<ul>
+<li>Certificate ：填写 *.pem 第一段<blockquote>
+<p> 从第一个 —–BEGIN CERTIFICATE—– 到第一个 —–END CERTIFICATE—– 结束</p>
+</blockquote>
+</li>
+<li>Private key ：填写 *.key 全部内容</li>
+<li>Intermediate certs ：填写 *.pem 第二段<blockquote>
+<p> 从第二个 —–BEGIN CERTIFICATE—– 到第二个 —–END CERTIFICATE—– 结束</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="../../../../../2017/12/19/给 GitHub Pages 上的 Hexo Blog 使用阿里云的免费 SSL 证书/screenshot_4.png" alt="screenshot_4.png"></p>
+<p><br></p>
+</div></article></div><p style="text-align:center"><a href="" class="donate-link"><img src="/donate.png" alt="donate" width="50%"></a></p></main><footer><div class="paginator"><a href="/2018/03/13/硬件开发规范化管理/" class="prev">PREV</a><a href="/2017/12/15/实现用户管理springboot+react+dva+antd/" class="next">NEXT</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'eseries';
+var disqus_identifier = '2017/12/19/给 GitHub Pages 上的 Hexo Blog 使用阿里云的免费 SSL 证书/';
+var disqus_title = '给 GitHub Pages 上的 Hexo Blog 使用阿里云的免费 SSL 证书';
+var disqus_url = 'http://eseries.studio/2017/12/19/给 GitHub Pages 上的 Hexo Blog 使用阿里云的免费 SSL 证书/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//eseries.disqus.com/count.js" async></script><div class="copyright"><p>© 2016 - 2018 <a href="http://eseries.studio">Ethan</a>, unless otherwise noted.</p></div></footer></div></body></html>
