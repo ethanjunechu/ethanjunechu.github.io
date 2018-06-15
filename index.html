@@ -4,22 +4,21 @@
 
 <p><img src="../../../../../2017/11/29/表盘校准设计系统/screenshot_1.png" alt="screenshot_1.png"></p>
 <hr>
-<h3 id="2017年12月28日"><a href="#2017年12月28日" class="headerlink" title="2017年12月28日"></a><code>2017年12月28日</code></h3><blockquote>
-<p>更新V1.0.2</p>
+<h3 id="2018年06月15日"><a href="#2018年06月15日" class="headerlink" title="2018年06月15日"></a><code>2018年06月15日</code></h3><blockquote>
+<p>更新<b>V1.1.3</b></p>
 <ul>
-<li>实装Logo图标绘制功能</li>
-<li>修复日常BUG</li>
+<li>调整普通坐标渐进绘制函数</li>
+<li>优化显示表盘刻度值位置</li>
+<li>已知BUG——不选定【主坐标】绘制不正确</li>
 </ul>
 </blockquote>
 <hr>
-<h3 id="2017年12月05日"><a href="#2017年12月05日" class="headerlink" title="2017年12月05日"></a><code>2017年12月05日</code></h3><blockquote>
-<p>更新<b>V1.0.1</b></p>
+<h3 id="2018年06月11日"><a href="#2018年06月11日" class="headerlink" title="2018年06月11日"></a><code>2018年06月11日</code></h3><blockquote>
+<p>更新<b>V1.1.2</b></p>
 <ul>
-<li>新增外表盘单位绘制功能，支持单位名称、字号、颜色、位置自定义</li>
-<li>新增作业进度条及Loading提示界面</li>
-<li>新增更新历史界面，点击《表盘设计系统》即可打开、关闭该界面</li>
-<li>新增高分辨率显示器支持</li>
-<li>修复未关闭本系统无法将导出的矢量图导入第三方绘图软件的BUG</div><a href="/2017/11/29/表盘校准设计系统/" class="read-more">...more</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2016/06/30/i.MX28-Linux移植/" class="post-title-link">i.MX28-Linux移植</a></h2><div class="post-info">Jun 30, 2016</div><div class="post-content"><p>1-3步均为未成功的例子，可自行忽略从第4步开始</p>
+<li>实装导入、导出样式到excel文件</li>
+<li>新增普通坐标渐进绘制函数，可设置任意次方函数</li>
+<li>优化绘图效率</div><a href="/2017/11/29/表盘校准设计系统/" class="read-more">...more</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/2016/06/30/i.MX28-Linux移植/" class="post-title-link">i.MX28-Linux移植</a></h2><div class="post-info">Jun 30, 2016</div><div class="post-content"><p>1-3步均为未成功的例子，可自行忽略从第4步开始</p>
 <h3 id="1-确定开发环境为Ubuntu-10-04"><a href="#1-确定开发环境为Ubuntu-10-04" class="headerlink" title="1.确定开发环境为Ubuntu-10.04"></a>1.确定开发环境为Ubuntu-10.04</h3><h3 id="2-更新软件源"><a href="#2-更新软件源" class="headerlink" title="2.更新软件源"></a>2.更新软件源</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo gedit /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
 <p>在弹出的文本框中将原始内容全部清空，修改成下面的旧源，保存并退出<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">deb http://old-releases.ubuntu.com/ubuntu/ natty main restricted universe multiverse</span><br><span class="line">deb http://old-releases.ubuntu.com/ubuntu/ natty-security main restricted universe multiverse</span><br><span class="line">deb http://old-releases.ubuntu.com/ubuntu/ natty-updates main restricted universe multiverse</span><br><span class="line">deb http://old-releases.ubuntu.com/ubuntu/ natty-proposed main restricted universe multiverse</span><br><span class="line">deb http://old-releases.ubuntu.com/ubuntu/ natty-backports main restricted universe multiverse</span><br><span class="line">deb-src http://old-releases.ubuntu.com/ubuntu/ natty main restricted universe multiverse</span><br><span class="line">deb-src http://old-releases.ubuntu.com/ubuntu/ natty-security main restricted universe multiverse</span><br><span class="line">deb-src http://old-releases.ubuntu.com/ubuntu/ natty-updates main restricted universe multiverse</span><br><span class="line">deb-src http://old-releases.ubuntu.com/ubuntu/ natty-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://old-releases.ubuntu.com/ubuntu/ natty-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure></p>
 <p>更新源<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get update</span><br></pre></td></tr></table></figure></p>
